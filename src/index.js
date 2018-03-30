@@ -15,7 +15,7 @@ import './index.css';
 function Square(props) {
   return (
     <div className="tablero square" onClick={props.bubblyClick}>
-      <div className="piece">{props.value}</div>
+      <div className="square_content--centered square_content unselectable">{props.value}</div>
     </div>
   );
 }
@@ -100,8 +100,7 @@ class Board extends React.Component {
             </div>
           </div>
         </div>
-        <div className="status h1">{status}</div>
-        //<div>{this.renderWinnerInformation(this.state.squares)}</div>
+        <div className="status h1 unselectable">{status}</div>
       </div>
     );
   }
@@ -134,7 +133,7 @@ function calculateWinner(squares) {
 class NewGameButton extends React.Component{
   render(){
     return(
-      <div className="new-game col-4 h3 font-weight-bold" onClick={this.props.resetGame}>
+      <div className="new-game unselectable col-5 h3 font-weight-bold" onClick={this.props.resetGame}>
       New Game
       </div>
     )
@@ -158,6 +157,5 @@ class Game extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
+  <Game />, document.getElementById('root')
 );
